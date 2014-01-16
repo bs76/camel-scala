@@ -1,0 +1,14 @@
+@(mtch: (Long,Int,Int,String,String,String,String),form:Form[(Int,Int)])
+@import helper.twitterBootstrap._
+
+@main("Update match score") {
+
+    <div class="row">
+    @helper.form(action = routes.Application.update(mtch._1)){
+        @helper.inputText(form("home"),args='_label-> (s"Home team ${mtch._4} (${mtch._5}) score"))
+        @helper.inputText(form("guest"),args='_label-> (s"Guest team ${mtch._6} (${mtch._7}) score"))
+
+        <button type="submit">Submit</button>
+    }
+    </div>
+}

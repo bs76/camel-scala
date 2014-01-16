@@ -1,0 +1,35 @@
+@(matches: Seq[(Long,Int,Int,String,String,String,String)])
+
+@main("Match scores") {
+
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            <tr>
+                <th>Home team</th>
+                <th></th>
+                <th>Guest team</th>
+                <th>Home score</th>
+                <th/>
+                <th>Guest score</th>
+                <th>Update</th>
+            </tr>
+            @for( (id,scoreHome,scoreGuest,home,homeTown,guest,guestTown) <- matches ){
+            <tr id="@id">
+                <td>@home (@homeTown)</td>
+                <td>vs.</td>
+                <td>@guest (@guestTown)</td>
+                <td>@scoreHome</td>
+                <td>:</td>
+                <td>@scoreGuest</td>
+                <td><a href="@routes.Application.updateForm(id)">Update</a></td>
+            </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
+
+}

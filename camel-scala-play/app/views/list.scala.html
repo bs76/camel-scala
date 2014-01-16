@@ -1,0 +1,26 @@
+@(matches: Seq[(Long,Int,Int,String,String,String,String)])
+
+@main("Match scores") {
+
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            @for( (id,scoreHome,scoreGuest,home,homeTown,guest,guestTown) <- matches ){
+            <tr>
+                <th><h3>@home</h3>(@homeTown)</th>
+                <th><h3>@guest</h3>(@guestTown)</th>
+            </tr>
+            <tr id="@id">
+                <td><h2 id="home@id">@scoreHome</h2></td>
+                <td><h2 id="guest@id">@scoreGuest</h2></td>
+            </tr>
+            }
+        </table>
+
+    </div>
+</div>
+<script src="@routes.Assets.at("javascripts/updater.js")" type="text/javascript"></script>
+
+
+}
